@@ -18,7 +18,7 @@ def validate_api_key(api_key):
         return False
     return True
     if not validate_api_key(api_key):
-    st.error("Invalid API key. Please enter a valid key.")
+        st.error("Invalid API key. Please enter a valid key.")
 else:
     # Create variables for the number of tokens and temperature
     st.sidebar.title("Settings")
