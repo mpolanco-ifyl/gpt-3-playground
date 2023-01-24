@@ -7,11 +7,12 @@ api_key = st.text_input("Enter your OpenAI API key:")
 # Validate the API key
 def validate_api_key(api_key):
     try:
-        openai.api_key = api_key
-        openai.Engine.list()
-        return True
-    except openai.exceptions.OpenAIError as e:
-        return False
+    openai.api_key = api_key
+    openai.Engine.list()
+    return True
+except openai.OpenAiError as e:
+    return False
+
 
 if not validate_api_key(api_key):
     st.error("Invalid API key. Please enter a valid key.")
