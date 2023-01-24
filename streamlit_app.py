@@ -22,12 +22,12 @@ def validate_api_key(api_key):
     else:
         # Create variables for the number of tokens and temperature
         st.sidebar.title("Settings")
-        max_tokens = st.sidebar.number_input("Number of tokens:", min_value=1, max_value=2048, value=1024)
+        max_tokens = st.sidebar.number_input("Number of tokens:", min_value=1, max_value=4000, value=1024)
         temperature = st.sidebar.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5)
 
 def generate_text(prompt):
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="text-davinci-003",
         prompt=prompt,
         max_tokens=max_tokens,
         n=1,
