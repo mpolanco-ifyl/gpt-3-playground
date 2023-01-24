@@ -9,9 +9,9 @@ def validate_api_key(api_key):
     try:
         openai.api_key = api_key
         openai.Engine.list()
-    return True
-except openai.OpenAiError as e:
-    return False
+        return True
+    except openai.OpenAiError as e:
+        return False
 
 
 if not validate_api_key(api_key):
