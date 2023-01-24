@@ -17,8 +17,7 @@ def validate_api_key(api_key):
     if response.status_code != 200:
         return False
     return True
-    except openai.exceptions.OpenAIError as e:
-        return False
+   
 
 if not validate_api_key(api_key):
     st.error("Invalid API key. Please enter a valid key.")
