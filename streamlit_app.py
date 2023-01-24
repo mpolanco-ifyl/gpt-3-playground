@@ -19,7 +19,15 @@ else:
     # Create variables for the number of tokens and temperature
     st.sidebar.title("Settings")
     temperature = st.sidebar.slider("Temperature:", min_value=0.0, max_value=1.0, value=0.5)
-
+    max_tokens = st.sidebar.number_input("Number of tokens:", min_value=1, max_value=4024, value=1024)
+    # Create a Streamlit UI for the GPT-3 playground
+    st.title("GPT-3 Playground")
+    prompt = st.text_input("Enter your prompt:")
+    if st.button("Generate Text"):
+        st.write("Generated text:")
+        st.write(generate_text(prompt,max_tokens,temperature))
+    
+    
     def generate_text(prompt):
         max_tokens = st.sidebar.number_input("Number of tokens:", min_value=1, max_value=4024, value=1024)
         response = openai.Completion.create(
