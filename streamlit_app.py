@@ -17,9 +17,7 @@ def validate_api_key(api_key):
     if response.status_code != 200:
         return False
     return True
-   
-
-if not validate_api_key(api_key):
+    if not validate_api_key(api_key):
     st.error("Invalid API key. Please enter a valid key.")
 else:
     # Create variables for the number of tokens and temperature
