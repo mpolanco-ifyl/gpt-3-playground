@@ -5,12 +5,18 @@ st.subheader("API Key")
 # Prompt the user for their OpenAI API key
 api_key = st.text_input("Enter your OpenAI API key:")
 
+
+
+
+
+
 # Validate the API key
 def validate_api_key(api_key):
-    try:
-        openai.api_key = api_key
-        openai.Engine.list()
-        return True
+    openai.api_key = api_key
+    response = openai.Engine.list()
+    if response.status_code != 200:
+        return False
+    return True
     except openai.exceptions.OpenAIError as e:
         return False
 
