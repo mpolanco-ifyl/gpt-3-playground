@@ -45,4 +45,4 @@ else:
     st.title("GPT-3 Playground")
     prompt = st.text_input("Enter your prompt:")
     st.write("Generated text:")
-    st.write(generate_text(prompt))
+    st.write(generate_text(prompt)) 
